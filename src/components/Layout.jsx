@@ -35,7 +35,7 @@ export const Layout = () => {
       try {
         console.log(e.target.synonym.value);
         const res = await fetch(
-          `http://localhost:8000/api/synonyms/${e.target.synonym.value}`,
+          `http://localhost:3005/api/synonyms/${e.target.synonym.value}`,
           requestOptions
         );
         const jsonRes = await res.json();
@@ -68,7 +68,7 @@ export const Layout = () => {
     };
     try {
       const res = await fetch(
-        "http://localhost:8000/api/synonyms",
+        "http://localhost:3005/api/synonyms",
         requestOptions
       );
       const jsonRes = await res.json();
