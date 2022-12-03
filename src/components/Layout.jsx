@@ -11,6 +11,7 @@ export const Layout = () => {
   const [open, setOpen] = React.useState(false);
   const [message, setMessage] = React.useState("");
   const [severity, setSeverity] = React.useState("success");
+  const [key, setKey] = React.useState("");
 
   const handleClick = () => {
     setOpen(true);
@@ -40,9 +41,10 @@ export const Layout = () => {
         const jsonRes = await res.json();
         if (res.status !== 200) {
           setSeverity("warning");
-          setMessage("There seem to be something wrong!");
+          setMessage("Please insert a valid word!");
           handleClick();
         } else {
+          setKey(e.target.synonym.value);
           setSynonyms(jsonRes);
         }
       } catch (error) {
@@ -122,7 +124,7 @@ export const Layout = () => {
         </form>
       </div>
       <div className="w-full flex justify-center mt-5">
-        <SynonymList synonyms={synonyms} />
+        <SynonymList synonyms={synonyms} synonymKey={key} />
       </div>
       <Toast
         handleClick={handleClick}
