@@ -33,9 +33,9 @@ export const Layout = () => {
     };
     if (e.target.synonym.value) {
       try {
-        console.log(e.target.synonym.value);
+        console.log(process.env.REACT_APP_BACKEND_URL);
         const res = await fetch(
-          `http://localhost:3005/api/synonyms/${e.target.synonym.value}`,
+          `${process.env.REACT_APP_BACKEND_URL}/${e.target.synonym.value}`,
           requestOptions
         );
         const jsonRes = await res.json();
@@ -56,7 +56,7 @@ export const Layout = () => {
   };
   //This submit function is for creation of synonyms
   const onSubmitting = async (e) => {
-    console.log("==");
+    console.log(process.env.REACT_APP_BACKEND_URL);
     e.preventDefault();
     const requestOptions = {
       method: "POST",
@@ -68,7 +68,7 @@ export const Layout = () => {
     };
     try {
       const res = await fetch(
-        "http://localhost:3005/api/synonyms",
+        process.env.REACT_APP_BACKEND_URL,
         requestOptions
       );
       const jsonRes = await res.json();

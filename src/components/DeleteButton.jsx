@@ -7,7 +7,7 @@ export const DeleteButton = ({ setSeverity, setMessage, handleClick }) => {
     };
     try {
       const res = await fetch(
-        `http://localhost:3005/api/synonyms`,
+        process.env.REACT_APP_BACKEND_URL,
         requestOptions
       );
       if (res.status === 200) {
