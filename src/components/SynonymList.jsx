@@ -5,7 +5,7 @@ export const SynonymList = ({ synonyms, synonymKey }) => {
         synonyms.lenght !== 0 &&
         synonyms.map((item, i = 0) => {
           console.log(synonymKey, item);
-          if (synonymKey !== item) {
+          if (synonymKey.toUpperCase() !== item) {
             return (
               <span
                 key={i++}
